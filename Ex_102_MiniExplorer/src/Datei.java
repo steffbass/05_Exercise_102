@@ -28,8 +28,31 @@ public class Datei extends File{
             LocalDateTime ldt = 
                     LocalDateTime.ofEpochSecond(
                             this.lastModified()/1000, 0, ZoneOffset.UTC);
+            
+ 
+             StringBuilder attribute = new StringBuilder("");
+            
+            if(this.canRead())
+              { 
+               attribute.append('R');
+              }
+            
+            if(this.canWrite())
+              { 
+               attribute.append('W');
+              }
+            
+            if(this.canExecute())
+              { 
+               attribute.append('X');
+              }
+            
+            if(this.isHidden())
+              { 
+              attribute.append('H');
+              }
            
-            return this.getName() + " "  + this.length() + " KB";
+            return this.getName() + " "  + this.length() + " KB   "+attribute+"";
         }
     }
     
