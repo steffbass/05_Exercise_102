@@ -1,6 +1,7 @@
 
 import java.io.File;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -12,15 +13,26 @@ import java.time.LocalDate;
  *
  * @author stefan
  */
-public class Datei extends File{
- 
-    private String name;
-    private LocalDate change_date;
-    private double size;
-    private char read = 'R';
-    private char write = 'W';
-    private char exe = 'X';
-    private char hide = 'H';
+public class Datei extends File{  
+
+    public Datei(String absolutePath) {
+        super(absolutePath);
+    }
+
+    @Override
+    public String toString() {
+        if( isDirectory() ){
+            return this.getName();
+        }
+        else{
+            LocalDateTime ldt = 
+                    LocalDateTime.ofEpochSecond(
+                            this.lastModified()/1000, 0, ZoneOffset.UTC);
+           
+            return this.getName() + " "  + this.length() + " KB";
+        }
+    }
     
     
+
 }
