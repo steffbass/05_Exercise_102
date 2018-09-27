@@ -1,4 +1,5 @@
 
+import java.util.ArrayList;
 import javax.swing.AbstractListModel;
 
 /*
@@ -13,14 +14,16 @@ import javax.swing.AbstractListModel;
  */
 public class DateiModell extends AbstractListModel{
 
+    private ArrayList <Datei> file = new ArrayList();
+    
     @Override
     public int getSize() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return file.size();
     }
 
     @Override
     public Object getElementAt(int index) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       return file.get(index);
     }
     
 }
