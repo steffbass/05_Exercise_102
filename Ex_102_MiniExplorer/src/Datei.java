@@ -1,4 +1,5 @@
 
+import java.io.File;
 import java.time.LocalDate;
 
 /*
@@ -11,7 +12,7 @@ import java.time.LocalDate;
  *
  * @author stefan
  */
-public class Datei {
+public class Datei extends File{
  
     private String name;
     private LocalDate change_date;
